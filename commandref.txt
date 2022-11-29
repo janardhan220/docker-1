@@ -16,3 +16,34 @@ apt-cache policy docker-ce
 sudo apt install docker-ce -y
 
 sudo systemctl status docker
+
+sudo docker version
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo usernod -aG docker student
+newgrp docker
+
+docker images
+docker pull hello-world
+docker pull busybox
+docker pull alpine
+
+docker run -it alpine sh
+>>>inside 
+        hostname
+
+launch one more terminal in vscode 
+newgrp docker
+docker ps >>
+
+docker ps -a #shows exited containers also
+
+create / launch 2 alpine containers with 2 diffrent name -- 3600 sec
+connect to each container save nov2022 cal in /tmp folder
+
+1. pull image
+2. run container using image
+2.a attched made /interactive
+2.b detached mode
+3. attach to running container using exec
