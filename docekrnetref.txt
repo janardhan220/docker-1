@@ -35,3 +35,7 @@ docker ps
 #create a new bridge network with ip block 172.20.0.0/16 bri20 
 launch container in the bri20
 launch container2 in the bri20 and host port map to 6666
+
+run apache2 web service in docker accessable via port 9999
+1. pull apache2 image
+2. run apache2

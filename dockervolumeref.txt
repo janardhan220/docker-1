@@ -1,0 +1,42 @@
+docker ps
+
+docker run -d --name nc1 nginx
+docker exec -it nc1 bash
+
+sudo ls -l /var/lib/docker/volumes/
+
+docker volume ls
+docker volume create website1
+
+docker run -d --name nc2ws2 -p 9090:80 --mount type=volume,src=website1,dst=/usr/share/nginx/html nginx
+
+docker inspect nc2ws1
+docker exec -it nc2ws1 bash >>>modified web page container
+
+###delete container launch new container mapping to the same volume
+
+docker run --help
+
+
+#lab run tomcat as container, share url of tomcat
+
+nginxdemos/hello
+nginxdemos/hello:plain-text
+
+docker run -d --name demo1 -p 8888:80 nginxdemos/hello 
+docker inspect demo2
+
+docker run -d --name demo2 -p 8889:80 nginxdemos/hello:plain-text
+
+default path
+nginx: /usr/share/nginx/html
+apache2/httpd: /usr/local/apache2/htdocs
+
+mkdir in docker host, create or copy sitecontents
+mkdir /site1/ #contains web site pages
+
+docker run -d --name nginxv1 -p 7777:80 -v /site1/:/usr/share/nginx/html/ nginx
+docker run -d --name nginxv2 -p 7778:80 -v /site1/:/usr/share/nginx/html/ nginx
+docker run -d --name apa2 -p 7776:80 -v /site1/:/usr/local/apache2/htdocs httpd
+
+#lab mount /web(host) content in httpd container http://....:3456
