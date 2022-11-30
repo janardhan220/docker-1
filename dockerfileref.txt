@@ -1,0 +1,25 @@
+# NEED A NGINX web site with some static web page, run as webapp on port no 5555
+1. pull nginx latest image
+2. list images
+3. run image
+4. exec/attach create/modify index.html in /usr/share/nginx/html
+5. commit image username/imagename
+6. push image to registry
+
+run image -p 5555:80
+
+
+mkdir build1
+cd build1
+touch Dockerfile #update with the following content
+FROM busybox
+COPY sample.txt /
+RUN mkdir /folder112233
+
+docker build -t dockerhubusername/bb1 .
+docker images
+
+docker run -it --name bb1 dockerhubusername/bb1 sh
+docker build -t dockerhubusername/bb1:1.2 .
+  636  docker run -it --name bb2 dockerhubusername/bb1:1.2 sh
+  
