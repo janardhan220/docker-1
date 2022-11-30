@@ -1,0 +1,37 @@
+#reference for docker network commands
+docker network ls
+
+docker inspect bridge
+
+docker run -it --name apl1 alpine sh
+
+docker container inspect apl1 
+#note the ip add of container
+
+docker run -d --name nginxcon1 nginx 
+docker ps
+docker exec -it nginxcon1 sh
+#change index.html /usr/share/nginx/html
+mv index.html index.html.old
+
+docker run -it --name a1 alpine sh
+port mapping -p hostport:containerport
+docker run -d --name nginxcon2 -p 8989:80 nginx
+
+docker exec -it nginxcon2 bash
+curl http://10.0.1.11:8989
+
+docker run -d --name nginxcon3 -p 9090:80 nginx
+
+#create docker network
+docker network create --driver=bridge --subnet=172.31.0.0/16 bridge31
+docker network ls
+docker network inspect bridge31
+
+docker run -d --name nginx32c1 --network=bridge31 nginx
+
+docker ps 
+
+#create a new bridge network with ip block 172.20.0.0/16 bri20 
+launch container in the bri20
+launch container2 in the bri20 and host port map to 6666

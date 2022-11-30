@@ -47,3 +47,46 @@ connect to each container save nov2022 cal in /tmp folder
 2.a attched made /interactive
 2.b detached mode
 3. attach to running container using exec
+
+docker rm contid
+docker rm $(docker ps -aq)
+docker rmi hello-world
+docker rmi $(docker images -q)
+
+docker pull alpine
+docker images
+docker run -it --name myapp1 alpine sh
+>>>>>>> indise container
+ls
+mkdir lksgold
+cd lksgold
+cal 2024>year2024.txt
+apk update
+apk add vim
+exit>>>>>>>
+docker diff <contID>
+docker commit <contID> <imagename>
+docker images
+
+shajahanak/myalpnon22
+
+docker tag imagename username/imagename
+
+docker login
+docker push username/imagename
+
+#pull python image run find version
+docker run -it --name mypy python [bash/empty]
+
+remove all containers
+remove all images
+
+# lab hands-on
+1. pull/run centos latest image
+2. under /tmp folder create html page with welcome message
+        echo "message 111" > index.html
+3. save centos image dockerusername/centosnov22:1.0.1
+4. push to hub.docker.com
+
+
+
