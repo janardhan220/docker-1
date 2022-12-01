@@ -1,0 +1,6 @@
+FROM busybox
+COPY sample.txt /
+RUN mkdir /folder112233
+LABEL creator="devopsadmin1"
+LABEL email="devops1eng@tcs.com"
+EXPOSE 80

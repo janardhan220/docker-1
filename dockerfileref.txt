@@ -22,4 +22,52 @@ docker images
 docker run -it --name bb1 dockerhubusername/bb1 sh
 docker build -t dockerhubusername/bb1:1.2 .
   636  docker run -it --name bb2 dockerhubusername/bb1:1.2 sh
+
+  docker build -t n123 .
+  docker run -d --name nc111 n123 -p 9090(host):80(cont port)
+  docker inspect nc111
+  curl http://172.17.0.2
+   curl http://172.17.0.3
+
+  docker build -f Dockerfile1 -t nnnn .
+
+  docker build --help
+
+  https://www.free-css.com/assets/files/free-css-templates/download/page285/a-world.zip
+
+
+lab2:
+downalod some website template from free-css.com
+unzip save in the same folder (html) (in same dir of Dockerfile)
+build docker file copy all contents to /usr/share/nginx/html
+build the image, run with host port bind 9090
+
+refer
+FROM nginx
+RUN apt update
+RUN apt install git elinks -y
+RUN rm -f /usr/share/nginx/html/*
+COPY html/ /usr/share/nginx/html/
+
+push image to dockerhub
+1. tag - docker tag n123 shajahanak/nginxaworld
+2. push - docker push shajahanak/nginxaworld
+   
+   fresh iamge >>con1 >>connect & changes >>>save changes with commit as image
+
+run mariadb container
   
+docker run --detach --name mdbc1 \
+ --env MARIADB_USER=euser \
+ --env MARIADB_PASSWORD=my_cool_secret \
+ --env MARIADB_ROOT_PASSWORD=redhat  \
+ mariadb:latest
+
+ docker exec -it mdbc1 bash
+  inside mdbc1
+  MariaDB [(none)]> SHOW DATABASES;
+
+ MariaDB [(none)]> USE sys;
+
+ MariaDB [sys]> SHOW TABLES;
+ ctrl+D (exit)

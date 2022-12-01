@@ -1,0 +1,8 @@
+FROM alpine:3.16
+ENV name DAVID
+RUN ["apk", "update"]
+RUN apk add vim elinks
+RUN addgroup appgrp && adduser -S -G appgrp appuser1
+USER appuser1
+CMD echo "Welcome $name, to Dockerfile class"
+ENTRYPOINT cal
