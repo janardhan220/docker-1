@@ -71,3 +71,5 @@ docker run --detach --name mdbc1 \
 
  MariaDB [sys]> SHOW TABLES;
  ctrl+D (exit)
+
+docker run -d --name na nginx 
