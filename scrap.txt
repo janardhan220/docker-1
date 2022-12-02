@@ -1,0 +1,17 @@
+container - Application install / develop - depandency  pre-req - OS phyM/VM
+
+BaseOS - multiple container
+Create  > Start > Running > paused/unpaused > stop > restart > remove
+
+Build: interactive build / Dockerfile
+
+Registry: push/pull
+
+docker network : bridge, host, none
+default bridge network block: 172.17.0.0/16
+host port map hostport:containerport
+
+docker storage 
+mount volume / bind
+-v host/path:container/path
+

@@ -1,0 +1,100 @@
+#install docker compose
+
+sudo apt-get update
+sudo apt-get install docker-compose-plugin
+
+docker compose version
+docker compose --help
+docker compose build --help
+## The docker-compose config command validate the docker-compose file 
+## and view the compose file.
+
+
+cont1: nginx
+cont2: httpd
+
+docker-compose.yml
+
+services:
+    nginxweb:
+        image: nginx
+    
+    apache2web:
+        image: httpd
+
+
+        ###########################
+        ###Create a docker-compose.yml file
+
+        version: '3.1'
+        services:
+        #Nginx Service
+        webserver:
+            image: nginx:alpine
+            container_name: webserver
+            restart: unless-stopped
+            ports:
+            - "80:80"
+            - "443:443"
+
+docker-compose config
+
+
+###################################
+
+version: '3.1'
+services:
+  #Nginx Service
+   webserver:
+     image: nginx:alpine
+     container_name: webserver
+     restart: unless-stopped
+     ports:
+       - "80:80"
+       - "443:443"
+   dbserver:
+     image: mysql:5.7
+     container_name: Mysqldb
+     restart: unless-stopped
+     ports:
+       - "3306:3306"
+
+###docker-compose pull
+
+
+
+
+
+version: '3.1'
+services:
+  #Nginx Service
+   webserver:
+     image: nginx:alpine
+     container_name: nginx
+     restart: unless-stopped
+     ports:
+       - "80:80"
+       - "443:443"
+   dbserver:
+      image: mysql:5.7
+      container_name: Mysqldb
+      restart: unless-stopped
+      ports:
+        - "3306:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: Pa$$w0rd
+        MYSQL_USER: test
+        MYSQL_PASSWORD: Pa$$w0rd123
+        MYSQL_DATABASE: test 
+      volumes:
+        - db_data:/var/lib/mysql
+volumes:
+  db_data:
+
+docker-compose up -d
+docker-compose ps
+docker-compose ps --services
+docker-compose port webserver 80
+docker-compose ps
+docker-compose scale redis-slave=3
+
